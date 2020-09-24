@@ -1,0 +1,35 @@
+.home-btn-link{
+    text-align: center;
+    display:flex;
+    flex-direction:column;
+    color:white;
+}
+
+.btn-game{
+    font-size: 20px;
+    /* border:3px solid black;  */
+    border-radius: 10px; 
+    margin:10px;
+}
+
+.btn-manager{
+    font-size: 20px;
+    border-radius: 10px;
+    margin:10px ;
+}
+
+.continer{
+    text-align: center;
+}
+
+.header{
+    font-size: 30px;
+    color:white; 
+    background: #35b6e7; 
+    padding:15px;
+}
+.container{
+    height: 100vh;
+    background-image:url('./img/background.jpg') no; 
+
+}
