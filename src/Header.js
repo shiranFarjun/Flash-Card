@@ -5,7 +5,7 @@ class Header extends React.Component {
     render() {
         return (
             <nav className="header">
-                <NavLink to="/" ><img src={arrow} /></NavLink>
+                <NavLink to="/" ><img src={arrow} alt=''/></NavLink>
                 <span style={{ marginLeft: '42%'}}>flash cards</span>
             </nav>
         );

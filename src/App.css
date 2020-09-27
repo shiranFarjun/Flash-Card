@@ -1,35 +1,81 @@
-.home-btn-link{
-    text-align: center;
-    display:flex;
-    flex-direction:column;
-    color:white;
-}
-
-.btn-game{
-    font-size: 20px;
-    /* border:3px solid black;  */
-    border-radius: 10px; 
-    margin:10px;
-}
-
-.btn-manager{
-    font-size: 20px;
-    border-radius: 10px;
-    margin:10px ;
-}
-
-.continer{
-    text-align: center;
-}
-
-.header{
+.header {
+    display: flex;
     font-size: 30px;
-    color:white; 
-    background: #35b6e7; 
-    padding:15px;
+    color: white;
+    background: #985958;
+    padding: 15px;
 }
-.container{
-    height: 100vh;
-    background-image:url('./img/background.jpg') no; 
 
+.home-btn-link {
+    display: flex;
+    flex-direction: column;
+    color: #985958;
+}
+
+.btn-game,
+.btn-manager {
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 20%;
+}
+
+.btn-manager {
+    margin-top: 5%;
+
+}
+
+.container {
+    text-align: center;
+    height: 100vh;
+    background-image: url('./img/qcard.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.continer-game {
+    /* display:flex; */
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.view-card {
+    margin-left: 41%;
+    margin-top: 2.5%;
+    margin-bottom: 2%;
+    width: 220px;
+    height: 300px;
+    border-radius: 30px;
+    background-color: white;
+    border: 3px solid #985958;
+}
+
+button {
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.text-card {
+    position: relative;
+    top: 25%;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn1,
+.btn2 {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.manger-continer{
+    display: flex;
+}
+.card
+{
+    margin:5px;
+    border: 3px solid #985958;
 }
