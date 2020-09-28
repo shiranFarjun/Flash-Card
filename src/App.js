@@ -1,20 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import mockapi from './api/mockapi';
 import Header from './Header';
 import Home from './Home';
 import Game from './Game';
 import Manager from './Manager';
 import './App.css'
 import ObjCard from './ObjCard.js'
+import mockapi from './api/mockapi';
+// import postNewCard from './component/PostNewCard'
 
 
 class App extends React.Component {
   state = {
-    packCards: [],
-    currentCard: {},
-    newCardCreate: false,
-    revealAnswaer: false
+    packCards: []
   }
 
   componentDidMount = async () => {
@@ -29,8 +27,9 @@ class App extends React.Component {
         console.log(this.state.packCards)
       } else {
         console.log('DB is NOT with data')
-        ObjCard.map((item)=> {
+        ObjCard.map((item) => {
           return this.postNewCard(item)
+          // return postNewCard(item,this.state.packCards))
         });
       }
     } else {
@@ -43,7 +42,7 @@ class App extends React.Component {
     this.setState({
       packCards: response.data
     });
-    console.log("in app postNewCard!!", this.state.packCards);
+    console.log(this.state.packCards);
   }
 
   render() {
@@ -53,8 +52,8 @@ class App extends React.Component {
           <div className="container">
             <Header />
             <Route path="/" exact component={Home} />
-            <Route path="/game" exact render={(props) => <Game postNewCard={this.postNewCard} packCards={this.state.packCards}  {...props} />} />
-            <Route path="/Manager" exact  render={(props) => <Manager packCards={this.state.packCards}  {...props} />} />  
+            <Route path="/game" exact render={(props) => <Game packCards={this.state.packCards}  {...props} />} />
+            <Route path="/Manager" exact render={(props) => <Manager onSubmit={this.postNewCard} packCards={this.state.packCards}  {...props} />} />
           </div>
         </BrowserRouter>
       </div>
@@ -64,85 +63,3 @@ class App extends React.Component {
 
 export default App;
 
-
-// <Route path="/product" exact component={Products} />
-// <Route path="/product/:id" component={ProductID}/> 
-
-
-
-
-
-
-
-
-
-
-
-// //////////////////////////////////////////////////////////////////////
-// import React from 'react';
-// import { BrowserRouter, Route } from 'react-router-dom';
-// import mockapi from './api/mockapi';
-// import Header from './Header';
-// import Home from './Home';
-// import Game from './Game';
-// import Manager from './Manager';
-// import './App.css'
-
-// class App extends React.Component {
-//   state = {
-//     packCards: [],
-//     currentCard: {},
-//     newCardCreate: false,
-//     revealAnswaer: false
-//   }
-//   async componentDidMount() {
-//     console.log('this.state.packCards',this.state.packCards.length)
-//     if (this.state.packCards.length === 0) {
-//       const response = await mockapi.get('/card');
-//       this.setState({
-//         packCards: response.data
-//       });
-//     } else {
-//       console.log("packCards is full in data-->from app!")
-//     }
-//     console.log('this.state.packCards',this.state.packCards)
-
-//   }
-
-//   postNewCard = async (newObj) => {
-//     const response = await mockapi.post('/card', newObj);  //  const response =
-//     this.setState((prevState, prevProps) => {
-//       return {
-//         packCards: [...prevState.packCards, newObj]
-//       };
-//     })
-//     console.log("in app postNewCard!!", this.state.packCards);
-//   }
-
-//   getRandomCard() {
-//     let card = Math.floor(Math.random() * Math.floor(this.props.packCards[0]));
-
-//     return (card);
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <BrowserRouter>
-//           <div className="container">
-//             <Header />
-//             <Route path="/" exact component={Home} />
-//             <Route path="/game" exact render={(props) => <Game postNewCard={this.postNewCard} packCards={this.state.packCards}  {...props} />} />
-//             <Route path="/Manager" exact component={Manager} />
-//           </div>
-//         </BrowserRouter>
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
-
-
-// <Route path="/product" exact component={Products} />
-// <Route path="/product/:id" component={ProductID}/> 
